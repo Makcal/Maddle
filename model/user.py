@@ -1,7 +1,9 @@
 from sqlalchemy import Column, Integer
 
+from common import Model
 
-class User:
+
+class User(Model):
     __tablename__ = 'users'
 
     id = Column("vk_id", Integer, primary_key=True)

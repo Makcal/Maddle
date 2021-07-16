@@ -1,7 +1,9 @@
 from sqlalchemy import Column, Integer, ForeignKey, String, Numeric, DateTime
 
+from common import Model
 
-class Transaction:
+
+class Transaction(Model):
     __tablename__ = 'history'
 
     id = Column(Integer, primary_key=True)

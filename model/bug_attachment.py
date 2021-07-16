@@ -1,7 +1,9 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
 
+from common import Model
 
-class ReportAttachment:
+
+class ReportAttachment(Model):
     __tablename__ = 'bug_attachments'
 
     id = Column(Integer, primary_key=True)

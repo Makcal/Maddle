@@ -1,0 +1,7 @@
+{
+    "db_dialect_with_driver": "mysql+pymysql",
+    "db_username": "maxim",
+    "db_password": "12345",
+    "db_location": "192.168.7.3:3306",
+    "db_name": "maddle"
+}

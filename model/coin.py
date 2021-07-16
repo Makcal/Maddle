@@ -1,7 +1,9 @@
 from sqlalchemy import Column, String, Numeric, SmallInteger
 
+from common import Model
 
-class Coin:
+
+class Coin(Model):
     __tablename__ = "currencies"
 
     id = Column(SmallInteger, primary_key=True)

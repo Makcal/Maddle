@@ -1,7 +1,9 @@
 from sqlalchemy import Column, Integer, ForeignKey
 
+from common import Model
 
-class Favourite:
+
+class Favourite(Model):
     __tablename__ = 'favourites'
 
     user_id = Column(

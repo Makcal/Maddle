@@ -1,7 +1,9 @@
-from sqlalchemy import Column, Integer, ForeignKey, Boolean
+from sqlalchemy import Column, ForeignKey, Boolean
+
+from common import Model
 
 
-class GeneralSettings:
+class GeneralSettings(Model):
     __tablename__ = 'general_settings'
 
     user_id = Column(

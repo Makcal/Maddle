@@ -1,7 +1,9 @@
-from sqlalchemy import Column, Integer, ForeignKey, Boolean
+from sqlalchemy import Column, ForeignKey, Boolean
+
+from common import Model
 
 
-class NotificationsSettings:
+class NotificationsSettings(Model):
     __tablename__ = 'notifications_settings'
 
     user_id = Column(

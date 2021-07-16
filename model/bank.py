@@ -1,7 +1,9 @@
 from sqlalchemy import Column, ForeignKey, Numeric
 
+from common import Model
 
-class BankAccount:
+
+class BankAccount(Model):
     __tablename__ = 'bank'
 
     user_id = Column(
