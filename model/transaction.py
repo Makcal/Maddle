@@ -14,8 +14,7 @@ class Transaction(Model):
     destination = Column(Integer, nullable=False)
     time = Column(DateTime, nullable=False)
     currency = Column(
-        ForeignKey("currencies.name", onupdate="CASCADE", ondelete="SET NULL"),
-        nullable=False
+        ForeignKey("currencies.name", onupdate="CASCADE", ondelete="SET NULL")
     )
     amount = Column(Numeric(15, 3), nullable=False)
     message = Column(String(255))
