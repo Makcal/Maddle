@@ -18,3 +18,15 @@ class Transaction(Model):
     )
     amount = Column(Numeric(15, 3), nullable=False)
     message = Column(String(255))
+
+    def __repr__(self):
+        return 'Transaction(' \
+            'id={0.id}, ' \
+            'sender={0.sender}, ' \
+            'destination={0.destination}, ' \
+            'time={0.time}, ' \
+            'currency={0.currency}, ' \
+            'amount={0.amount}, ' \
+            'message={0.message}' \
+        ')'.format(self)
+

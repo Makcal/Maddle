@@ -11,3 +11,10 @@ class ReportAttachment(Model):
         ForeignKey("users.vk_id", onupdate="CASCADE", ondelete="CASCADE"),
     )
     link = Column(String(500))
+
+    def __repr__(self):
+        return 'ReportAttachment(' \
+            'id={0.id}, ' \
+            'report_id={0.report_id}, ' \
+            'link={0.link}' \
+        ')'.format(self)

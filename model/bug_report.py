@@ -11,3 +11,10 @@ class Report(Model):
         ForeignKey("users.vk_id", onupdate="CASCADE", ondelete="SET NULL")
     )
     message = Column(Text)
+
+    def __repr__(self):
+        return 'Report(' \
+            'id={0.id}, ' \
+            'reporter={0.reporter}, ' \
+            'message={0.message}' \
+        ')'.format(self)

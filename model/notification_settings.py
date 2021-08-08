@@ -14,3 +14,12 @@ class NotificationsSettings(Model):
     requests = Column(Boolean, default=True)
     market_news = Column(Boolean, default=True)
     mailing = Column(Boolean, default=True)
+
+    def __repr__(self):
+        return 'NotificationsSettings(' \
+            'user_id={0.user_id}, ' \
+            'transactions={0.transactions}, ' \
+            'requests={0.requests}, ' \
+            'market_news={0.market_news}, ' \
+            'mailing={0.mailing}' \
+        ')'.format(self)
