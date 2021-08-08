@@ -7,7 +7,7 @@ class NotificationsSettings(Model):
     __tablename__ = 'notifications_settings'
 
     user_id = Column(
-        ForeignKey("users.vk_id", onupdate="CASCADE", ondelete="CASCADE"),
+        ForeignKey('users.vk_id', onupdate='CASCADE', ondelete='CASCADE'),
         primary_key=True
     )
     transactions = Column(Boolean, default=True)

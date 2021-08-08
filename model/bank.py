@@ -7,15 +7,15 @@ class BankAccount(Model):
     __tablename__ = 'bank'
 
     user_id = Column(
-        ForeignKey("users.vk_id", onupdate="CASCADE", ondelete="CASCADE"),
+        ForeignKey('users.vk_id', onupdate='CASCADE', ondelete='CASCADE'),
         primary_key=True
     )
     currency = Column(
-        ForeignKey("currencies.name", onupdate="CASCADE", ondelete="CASCADE"),
+        ForeignKey('currencies.name', onupdate='CASCADE', ondelete='CASCADE'),
         nullable=False,
         primary_key=True
     )
-    account = Column(Numeric(20, 9), nullable=False, default=0)
+    balance = Column(Numeric(20, 9), nullable=False, default=0)
 
     def __repr__(self):
         return 'BankAccount(' \

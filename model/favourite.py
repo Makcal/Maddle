@@ -7,7 +7,7 @@ class Favourite(Model):
     __tablename__ = 'favourites'
 
     user_id = Column(
-        ForeignKey("users.vk_id", onupdate="CASCADE", ondelete="CASCADE"),
+        ForeignKey('users.vk_id', onupdate='CASCADE', ondelete='CASCADE'),
         primary_key=True
     )
     favourite_id = Column(Integer, primary_key=True)

@@ -8,7 +8,7 @@ class ReportAttachment(Model):
 
     id = Column(Integer, primary_key=True)
     report_id = Column(
-        ForeignKey("users.vk_id", onupdate="CASCADE", ondelete="CASCADE"),
+        ForeignKey('users.vk_id', onupdate='CASCADE', ondelete='CASCADE'),
     )
     link = Column(String(500))
 

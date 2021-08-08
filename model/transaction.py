@@ -8,13 +8,13 @@ class Transaction(Model):
 
     id = Column(Integer, primary_key=True)
     sender = Column(
-        ForeignKey("users.vk_id", onupdate="CASCADE", ondelete="CASCADE"),
+        ForeignKey('users.vk_id', onupdate='CASCADE', ondelete='CASCADE'),
         nullable=False
     )
     destination = Column(Integer, nullable=False)
     time = Column(DateTime, nullable=False)
     currency = Column(
-        ForeignKey("currencies.name", onupdate="CASCADE", ondelete="SET NULL")
+        ForeignKey('currencies.name', onupdate='CASCADE', ondelete='SET NULL')
     )
     amount = Column(Numeric(15, 3), nullable=False)
     message = Column(String(255))
@@ -29,4 +29,3 @@ class Transaction(Model):
             'amount={0.amount}, ' \
             'message={0.message}' \
         ')'.format(self)
-
