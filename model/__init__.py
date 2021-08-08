@@ -1,4 +1,3 @@
-from .coin import Coin
 from .transaction import Transaction
 from .user import User
 from .favourite import Favourite
@@ -7,3 +6,4 @@ from .general_settings import GeneralSettings
 from .bug_report import Report
 from .bug_attachment import ReportAttachment
 from .bank import BankAccount
+from .coins.coin import Coin
