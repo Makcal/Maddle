@@ -1,6 +1,7 @@
 from json import load
 import os
 import sys
+import atexit
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import registry, sessionmaker
@@ -45,5 +46,10 @@ get_session = sessionmaker(engine)
 
 registry = registry(_bind=engine)
 Model = registry.generate_base(name='Model')
+
+flask_stream = open('logs/flask.log', 'a', buffering=1)
+maddle_stream = open('logs/maddle.log', 'a', buffering=1)
+atexit.register(flask_stream.close)
+atexit.register(maddle_stream.close)
 
 # __all__ = ['engine', 'get_session', 'registry', 'Model']
