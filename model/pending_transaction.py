@@ -8,7 +8,7 @@ class PendingTransaction(Model):
     __tablename__ = 'pending_transactions'
 
     user_id = Column(
-        ForeignKey('users.id', onupdate='CASCADE', ondelete='CASCADE'),
+        ForeignKey('users.vk_id', onupdate='CASCADE', ondelete='CASCADE'),
         primary_key=True
     )
     currency = Column(

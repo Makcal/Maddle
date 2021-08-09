@@ -15,8 +15,7 @@ class Transaction(Model):
     destination = Column(Integer, nullable=False)
     time = Column(DateTime, nullable=False, default=get_msk_time)
     currency = Column(
-        ForeignKey('currencies.id', onupdate='CASCADE', ondelete='SET NULL'),
-        nullable=False
+        ForeignKey('currencies.id', onupdate='CASCADE', ondelete='SET NULL')
     )
     amount = Column(Numeric(15, 3), nullable=False)
     message = Column(String(255))

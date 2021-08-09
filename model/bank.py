@@ -12,7 +12,6 @@ class BankAccount(Model):
     )
     currency = Column(
         ForeignKey('currencies.id', onupdate='CASCADE', ondelete='CASCADE'),
-        nullable=False,
         primary_key=True
     )
     balance = Column(Numeric(20, 9), nullable=False, default=0)

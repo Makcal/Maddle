@@ -4,7 +4,7 @@ from sqlalchemy import Column, String, Numeric, SmallInteger, select
 from sqlalchemy.orm.decl_api import DeclarativeMeta
 from sqlalchemy.exc import NoResultFound
 
-from common import Model
+from common import Model, get_session
 from .coin_account import CoinAccount
 from exc import UnknownCurrencyError
 
@@ -14,7 +14,7 @@ class _CoinMeta(DeclarativeMeta, ABCMeta):
 
 
 class Coin(Model, ABC, metaclass=_CoinMeta):
-    __tablename__ = 'coins'
+    __tablename__ = 'currencies'
     __abstract__ = True
 
     id = Column(SmallInteger, primary_key=True)
@@ -42,10 +42,19 @@ class Coin(Model, ABC, metaclass=_CoinMeta):
     def load(cls, session):
         try:
             return session.execute(
-                select(cls).where(cls.name == cls.get_name())
+                select(cls).where(cls.name == cls.query_id())
             ).scalar_one()
         except NoResultFound:
-            raise UnknownCurrencyError(cls.get_name())
+            raise UnknownCurrencyError(cls.query_id())
+
+    @classmethod
+    def query_id(cls):
+        with get_session() as session:
+            id_ = session.execute(
+                select(cls.id).
+                filter_by(name=cls.get_name())
+            ).scalar_one()
+            return id_
 
     @staticmethod
     @abstractmethod
