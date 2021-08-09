@@ -61,7 +61,11 @@ class Coin(Model, ABC, metaclass=_CoinMeta):
         pass
 
     @abstractmethod
-    def get_payment_url(self, to_id, amount, free_amount=False):
+    def create_payment_url(self, to_id, amount, free_amount=False):
+        pass
+
+    @abstractmethod
+    def get_payment_url(self, amount, free_amount=False):
         pass
 
     @abstractmethod

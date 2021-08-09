@@ -44,13 +44,16 @@ class VKCoin(Coin):
             total.update(dict_)
         return total
 
-    def get_payment_url(self, amount, to_id=None, free_amount=False):
+    def create_payment_url(self, to_id, amount, free_amount=False):
         user_id = to_id if to_id is not None else self.account.id
         return VKCoin_(user_id, None).get_payment_url(
             amount,
             payload=randint(-2 * 10**9, 2 * 10**9),
             free_amount=free_amount
         )
+
+    def get_payment_url(self, amount, free_amount=False):
+        return self.create_payment_url(self.account.id, amount, free_amount)
 
     def send_money(self, to_id, amount, as_merchant=True):
         return VKCoin_(*self.account).send_payment(to_id, amount, as_merchant)

@@ -1,6 +1,7 @@
 from sqlalchemy import Column, Integer, ForeignKey, String, Numeric, DateTime
 
 from common import Model
+from util.time import get_msk_time
 
 
 class Transaction(Model):
@@ -12,9 +13,10 @@ class Transaction(Model):
         nullable=False
     )
     destination = Column(Integer, nullable=False)
-    time = Column(DateTime, nullable=False)
+    time = Column(DateTime, nullable=False, default=get_msk_time)
     currency = Column(
-        ForeignKey('currencies.name', onupdate='CASCADE', ondelete='SET NULL')
+        ForeignKey('currencies.id', onupdate='CASCADE', ondelete='SET NULL'),
+        nullable=False
     )
     amount = Column(Numeric(15, 3), nullable=False)
     message = Column(String(255))

@@ -11,7 +11,7 @@ class BankAccount(Model):
         primary_key=True
     )
     currency = Column(
-        ForeignKey('currencies.name', onupdate='CASCADE', ondelete='CASCADE'),
+        ForeignKey('currencies.id', onupdate='CASCADE', ondelete='CASCADE'),
         nullable=False,
         primary_key=True
     )
