@@ -7,3 +7,4 @@ from .bug_report import Report
 from .bug_attachment import ReportAttachment
 from .bank import BankAccount
 from .coins.coin import Coin
+from .pending_transaction import PendingTransaction
