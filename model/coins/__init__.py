@@ -1,7 +1,7 @@
 from .coin import Coin
 from .vkcoin import VKCoin
 
-_coins = [VKCoin]
-COIN_CLASSES = {c.query_id(): c for c in _coins}
+coin_list = [VKCoin]
+COIN_CLASSES = {c.query_id(): c for c in coin_list}
 
-__all__ = ['Coin', 'VKCoin', 'COIN_CLASSES']
+__all__ = ['coin_list', 'Coin', 'VKCoin', 'COIN_CLASSES']

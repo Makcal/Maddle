@@ -10,7 +10,7 @@ class GeneralSettings(Model):
         ForeignKey('users.vk_id', onupdate='CASCADE', ondelete='CASCADE'),
         primary_key=True
     )
-    confirm_remittances = Column(Boolean, default=False)
+    confirm_remittances = Column(Boolean, default=True)
     reset_filters = Column(Boolean, default=True)
 
     def __repr__(self):
